@@ -101,19 +101,6 @@ class GameKenoService {
       tempResult = this.SETTING_GAME.MODIFIED_RESULT;
     }
     // Tự động can thiệp kết quả, bên nhiều hơn sẽ thua
-    else if (this.SETTING_GAME.IS_AUTO_RESULT) {
-      const tongTienCuocGame = await this.getTongTienCuocGame();
-      for (let i = 1; i <= 5; i++) {
-        if (tongTienCuocGame[i].C > tongTienCuocGame[i].L) {
-          tempResult[i - 1] = randomBiTheoLoai({ loai: "L" });
-        } else if (tongTienCuocGame[i].C < tongTienCuocGame[i].L) {
-          tempResult[i - 1] = randomBiTheoLoai({ loai: "C" });
-        } else {
-          tempResult[i - 1] = getRandomArbitrary(MIN_RANGE_NUMBER, MAX_RANGE_NUMBER);
-        }
-      }
-    }
-
     return tempResult;
   };
   /**

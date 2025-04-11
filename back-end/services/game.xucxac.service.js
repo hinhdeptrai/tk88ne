@@ -97,20 +97,7 @@ class GameXucXacService {
       tempResult = this.SETTING_GAME.MODIFIED_RESULT;
     }
     // Tự động can thiệp kết quả, bên nhiều hơn sẽ thua
-    else if (this.SETTING_GAME.IS_AUTO_RESULT) {
-      const { T: tongTaiDat, X: tongXiuDat } = await this.getTongTienCuocGame();
-      if (tongTaiDat > tongXiuDat) {
-        // Auto ra xỉu
-        tempResult = randomXucXacTheoLoai({ loai: "X" });
-      } else if (tongTaiDat < tongXiuDat) {
-        // Auto ra tài
-        tempResult = randomXucXacTheoLoai({ loai: "T" });
-      } else {
-        // Trường hợp 2 bên bằng nhau
-        tempResult = Array.from({ length: 3 }).map((_, i) => getRandomArbitrary(MIN_RANGE_NUMBER, MAX_RANGE_NUMBER));
-      }
-    }
-
+   
     return tempResult;
   };
   /**

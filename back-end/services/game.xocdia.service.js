@@ -104,17 +104,7 @@ class GameXocDiaService {
       tempResult = this.SETTING_GAME.MODIFIED_RESULT;
     }
     // Tự động can thiệp kết quả, bên nhiều hơn sẽ thua
-    else if (this.SETTING_GAME.IS_AUTO_RESULT) {
-      const tongTienCuocGame = await this.getTongTienCuocGame();
-      if (tongTienCuocGame.C > tongTienCuocGame.L) {
-        tempResult = randomBiTheoLoai({ loai: "L" });
-      } else if (tongTienCuocGame.C < tongTienCuocGame.L) {
-        tempResult = randomBiTheoLoai({ loai: "C" });
-      } else {
-        tempResult = Array.from({ length: 4 }).map((_, i) => getRandomArbitrary(MIN_RANGE_NUMBER, MAX_RANGE_NUMBER));
-      }
-    }
-
+ 
     return tempResult;
   };
   /**
