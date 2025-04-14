@@ -7,7 +7,7 @@ import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const MUSIC_STATE_KEY = 'background_music_state';
 
