@@ -19,6 +19,8 @@ import SocketProvider from "../providers/SocketProvider";
 import { store } from "../redux/reducers/store";
 import "../styles/globals.css";
 import "../styles/layout.scss";
+import BackgroundMusic from '@/components/BackgroundMusic';
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -41,6 +43,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
               <ThemeLayout>
                 <DefaultSeo {...NextSeoConfig} />
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <BackgroundMusic />
                   <Component {...pageProps} />
                 </LocalizationProvider>
                 <ToastContainer
